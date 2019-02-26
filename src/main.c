@@ -24,6 +24,11 @@ void addNext(struct node *current, struct node *next) {
          * address is given, and set it to that.
          */
         current->pnext = next;
+
+/*
+void addNext(struct node *current, struct node next) {
+    if(current->pnext != NULL) {
+        current->pnext = &next;
     } else {
         /**
          * Preprocessor warnings occur whenever the preprocessor sees them. This
@@ -88,6 +93,7 @@ int main(int argc, char **argv) {
             current = current->pnext;
         }
         current->item = data[i]; //set data for current node
+
     }
 
     current = head;
@@ -109,13 +115,14 @@ int main(int argc, char **argv) {
     // Remove twice
     for(int i = 0; i < 2; i++) {
         struct node *old_head = head;
-        head = head -> pnext;
+        head = head->pnext;
         free(old_head);
     }
 
     /* Just for reference, another way to print it: */
     for (current = head; current != NULL; current = current->pnext) {
         printf("(%d) ", current->item);
+
     }
     puts("\n");
 
